@@ -13,7 +13,7 @@ namespace api.Controllers
         [HttpGet]
         public ActionResult<string> Get()
         {
-            return "Hello from api";
+            return "Hello from api ";
         }
 
 
