@@ -5,6 +5,7 @@ function UserScreen() {
     const [userName, setUserName] = useState('');
     const saveUser = () => {
         sessionStorage.setItem("name", userName);
+        window.location.reload();
     }
     return (
         <div className="lg-50 lg-to-center s-border s-radius">
