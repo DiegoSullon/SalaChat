@@ -5,7 +5,7 @@ import UserScreen from './Components/UserScreen';
 import ChatRoomScreen from './Components/ChatRoomScreen';
 function App() {
   const [message, setMessage] = useState('')
-  axios.get(`https://localhost:5001/api/hello`)
+  axios.get(`${process.env.API_URL}hello`)
     .then(p => setMessage(p.data));
   if (sessionStorage.getItem('name') && sessionStorage.getItem('name') !== '') {
     return (
