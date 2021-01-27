@@ -7,7 +7,7 @@ namespace api.Models
 {
     public class LogBook
     {
-        public Guid logBookId{get;set;}
+        public Guid logBookId{get;set;} = Guid.NewGuid();
         public string userName {get;set;}
 
         public DateTime logBookDate{get;set;}

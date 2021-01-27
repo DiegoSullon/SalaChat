@@ -28,8 +28,11 @@ namespace api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            // services.AddDbContext<ChatContext>(options=>{
+                // options.UseInMemoryDatabase("chatApp");
+            // });
             services.AddDbContext<ChatContext>(options=>{
-                options.UseInMemoryDatabase("chatApp");
+                options.UseSqlServer(@"Data Source=DESKTOP-FV5LUU9\SQLEXPRESS; Initial Catalog=ChatDB;Integrated Security=SSPI;");
             });
         }
 

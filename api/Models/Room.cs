@@ -7,7 +7,7 @@ namespace api.Models
 {
     public class Room
     {
-        public Guid roomId {set; get;}
+        public Guid roomId {set; get;} = Guid.NewGuid();
         public string name {get;set;}
         public string description {get;set;}
 
