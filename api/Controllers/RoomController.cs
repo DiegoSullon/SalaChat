@@ -31,10 +31,11 @@ namespace api.Controllers
         }
 
         [HttpPost]
-        public void Post([FromBody] Room value)
+        public async Task PostAsync([FromBody] Room value)
         {
             value.roomId = Guid.NewGuid();
             context.rooms.Add(value);
+            await context.SaveChangesAsync();
         }
 
         [HttpPut("{id}")]

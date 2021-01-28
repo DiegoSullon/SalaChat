@@ -26,21 +26,22 @@ namespace api.Controllers
         [Route("ByRoom/{id}")]
         public ActionResult<IEnumerable<Message>> GetByRoom(string id)
         {
-            return context.messages.Where(p=>p.roomId == Guid.Parse(id)).ToList();
+            return Ok(context.messages.Where(p=>p.roomId == Guid.Parse(id)).OrderByDescending(p=>p.messageDate));
         }
 
         [HttpGet("{id}")]
         public ActionResult<Message> Get(string id)
         {
-           return context.messages.FirstOrDefault(p=>p.roomId == Guid.Parse(id));
+           return context.messages.FirstOrDefault(p=>p.roomId == Guid.Parse(id)); 
         }
 
         [HttpPost]
-        public void Post([FromBody] Message value)
+        public async Task PostAsync([FromBody] Message value)
         {
             value.messageId = Guid.NewGuid();
             value.messageDate = DateTime.Now;
             context.messages.Add(value);
+            await context.SaveChangesAsync();
         }
 
         [HttpPut("{id}")]

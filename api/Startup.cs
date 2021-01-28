@@ -44,7 +44,7 @@ namespace api
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
+            // app.UseHttpsRedirection();
 
             app.UseCors(p=> p.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
 

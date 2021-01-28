@@ -30,11 +30,12 @@ namespace api.Controller
         }
 
         [HttpPost]
-        public void Post([FromBody] LogBook value)
+        public async Task PostAsync([FromBody] LogBook value)
         {
             value.logBookId = Guid.NewGuid();
             value.logBookDate = DateTime.Now;
             context.logBooks.Add(value);
+            await context.SaveChangesAsync();
         }
 
         [HttpPut("{id}")]
