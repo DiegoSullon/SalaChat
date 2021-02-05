@@ -1,10 +1,17 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import axios from 'axios'
 import './ChatRoomScreen.css'
+import * as signalR from '@microsoft/signalr'
 function ChatRoomScreen() {
     const [room, setRoom] = useState([])
     const [messages, setMessages] = useState([])
     const [currentRoom, setcurrentRoom] = useState('')
+    const [connectionSignalR, setConnectionSignalR] = useState({})
+
+    const lastMessages = useRef(null);
+    const lastRoom = useRef(null);
+    lastMessages.current = messages;
+    lastRoom.current = currentRoom;
     useEffect(() => {
         axios.get("http://localhost:5000/api/room")
             .then(p => {
@@ -13,6 +20,25 @@ function ChatRoomScreen() {
                 getMessages(p.data[0].roomId)
             })
             .catch(e => console.error(e));
+
+        // signalR
+        let connection = new signalR.HubConnectionBuilder()
+            .withUrl("http://localhost:5000/api/chat")
+            .build();
+
+        connection.on("RecievedMessage", data => {
+            if (data.roomId === lastRoom.current.roomId) {
+                setMessages([data, ...lastMessages.current]);
+            }
+            // console.log(data);
+        });
+
+        connection.start()
+            .then(() => {
+                // connection.invoke("sendMessage", "Hello")
+            });
+        setConnectionSignalR(connection);
+
     }, []);
     const getMessages = (roomId) => {
         axios.get(`http://localhost:5000/api/Message/ByRoom/${roomId}`)
@@ -26,7 +52,8 @@ function ChatRoomScreen() {
 
             axios.post("http://localhost:5000/api/Message", message)
                 .then(() => {
-                    setMessages([message, ...messages])
+                    setMessages([message, ...messages]);
+                    connectionSignalR.invoke("SendMessage", message);
                     document.getElementsByClassName("chat-text")[0].value = '';
                 })
                 .catch(e => console.error(e));

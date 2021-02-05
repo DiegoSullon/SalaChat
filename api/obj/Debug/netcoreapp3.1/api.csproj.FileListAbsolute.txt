@@ -60,3 +60,4 @@ D:\XXX\Web\Apps\SalasChat\api\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Mi
 D:\XXX\Web\Apps\SalasChat\api\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
 D:\XXX\Web\Apps\SalasChat\api\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 D:\XXX\Web\Apps\SalasChat\api\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+D:\XXX\Web\Apps\SalasChat\api\bin\Debug\netcoreapp3.1\System.Net.WebSockets.WebSocketProtocol.dll

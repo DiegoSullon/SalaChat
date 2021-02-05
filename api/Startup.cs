@@ -30,11 +30,12 @@ namespace api
         {
             services.AddControllers();
             // services.AddDbContext<ChatContext>(options=>{
-                // options.UseInMemoryDatabase("chatApp");
+            // options.UseInMemoryDatabase("chatApp");
             // });
 
             services.AddSignalR();
-            services.AddDbContext<ChatContext>(options=>{
+            services.AddDbContext<ChatContext>(options =>
+            {
                 options.UseSqlServer(@"Data Source=DESKTOP-FV5LUU9\SQLEXPRESS; Initial Catalog=ChatDB;Integrated Security=SSPI;");
             });
         }
@@ -49,17 +50,22 @@ namespace api
 
             // app.UseHttpsRedirection();
 
-            app.UseCors(p=> p.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
+            app.UseCors(p =>
+            {
+                p.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin();
+                
+                p.WithOrigins("http://localhost:3000").AllowAnyHeader().AllowAnyMethod().AllowCredentials();
+            });
 
             app.UseRouting();
 
-            
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-                endpoints.MapHub<ChatHub>("/chat");
+                endpoints.MapHub<ChatHub>("api/chat");
             });
 
             app.UseWelcomePage();
