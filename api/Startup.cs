@@ -36,7 +36,8 @@ namespace api
             services.AddSignalR();
             services.AddDbContext<ChatContext>(options =>
             {
-                options.UseSqlServer(@"Data Source=DESKTOP-FV5LUU9\SQLEXPRESS; Initial Catalog=ChatDB;Integrated Security=SSPI;");
+                // options.UseSqlServer(@"Data Source=DESKTOP-FV5LUU9\SQLEXPRESS; Initial Catalog=ChatDB;Integrated Security=SSPI;");
+                options.UseInMemoryDatabase("AppDB");
             });
         }
 

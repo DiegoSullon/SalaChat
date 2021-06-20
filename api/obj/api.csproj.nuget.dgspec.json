@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\XXX\\Web\\Apps\\SalasChat\\api\\api.csproj": {}
+    "X:\\XXX\\JS\\React\\SalaChat\\api\\api.csproj": {}
   },
   "projects": {
-    "D:\\XXX\\Web\\Apps\\SalasChat\\api\\api.csproj": {
+    "X:\\XXX\\JS\\React\\SalaChat\\api\\api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\XXX\\Web\\Apps\\SalasChat\\api\\api.csproj",
+        "projectUniqueName": "X:\\XXX\\JS\\React\\SalaChat\\api\\api.csproj",
         "projectName": "api",
-        "projectPath": "D:\\XXX\\Web\\Apps\\SalasChat\\api\\api.csproj",
-        "packagesPath": "C:\\Users\\Diego Sullon\\.nuget\\packages\\",
-        "outputPath": "D:\\XXX\\Web\\Apps\\SalasChat\\api\\obj\\",
+        "projectPath": "X:\\XXX\\JS\\React\\SalaChat\\api\\api.csproj",
+        "packagesPath": "C:\\Users\\DiegoSullon\\.nuget\\packages\\",
+        "outputPath": "X:\\XXX\\JS\\React\\SalaChat\\api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Diego Sullon\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\DiegoSullon\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,6 +26,7 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -37,6 +38,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "Microsoft.AspNetCore.SignalR": {
               "target": "Package",
@@ -73,7 +75,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.405\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }
